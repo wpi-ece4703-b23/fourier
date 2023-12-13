@@ -2,9 +2,9 @@
 #include "xlaudio_armdsp.h"
 #include <stdio.h>
 
-#define BUFLEN BUFLEN_64
-#define BUFLEN_SZ 64
-#define N 64
+#define BUFLEN BUFLEN_128
+#define BUFLEN_SZ 128
+#define N 128
 
 float32_t insamples[N];
 float32_t outsamples[N];
@@ -38,7 +38,7 @@ int main() {
 
   xlaudio_init_dma (FS_8000_HZ,
                     XLAUDIO_J1_2_IN,
-                    BUFLEN_64,
+                    BUFLEN_128,
                     perfCheck);
 
   int c = xlaudio_measurePerfBuffer(perfCheck);
