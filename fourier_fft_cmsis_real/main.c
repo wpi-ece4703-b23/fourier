@@ -2,9 +2,9 @@
 #include "xlaudio_armdsp.h"
 #include <stdio.h>
 
-#define BUFLEN BUFLEN_64
-#define BUFLEN_SZ 64
-#define N 64
+#define BUFLEN BUFLEN_128
+#define BUFLEN_SZ 128
+#define N 128
 
 float32_t insamples[N];
 float32_t outsamples[N];
@@ -24,8 +24,8 @@ void perfCheck(uint16_t x[BUFLEN_SZ], uint16_t y[BUFLEN_SZ]) {
     arm_rfft_fast_f32(&armFFT, insamples, outsamples, 0);
 
     for (i=0; i<N; i = i + 2)
-        y[i] = y[i+1] = xlaudio_f32_to_dac14(outsamples[i]*outsamples[i] +
-                                             outsamples[i+1]*outsamples[i+1]);
+        y[i] = y[i+1] = xlaudio_f32_to_dac14(0.5f * (outsamples[i]*outsamples[i] +
+                                             outsamples[i+1]*outsamples[i+1]));
 
 }
 
@@ -33,7 +33,7 @@ int main() {
 
   initfft();
 
-  xlaudio_init_dma (FS_8000_HZ, XLAUDIO_J1_2_IN, BUFLEN_64, perfCheck);
+  xlaudio_init_dma (FS_8000_HZ, XLAUDIO_J1_2_IN, BUFLEN_128, perfCheck);
 
   int c = xlaudio_measurePerfBuffer(perfCheck);
   printf("Cycles %d\n", c);

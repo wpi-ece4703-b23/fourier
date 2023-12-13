@@ -14,5 +14,5 @@
 	<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate_msp432"/>
 	<filesToOpen value="main.c"/>
 	<isTargetManual value="false"/>
-	<origin value="C:/Users/pschaumont/Desktop/fourier/fourier_fft_cmsis_real"/>
+	<origin value="C:/Users/pschaumont/Desktop/fourier/fourier_fft_cmsis_real_hanning"/>
 </projectOptions>

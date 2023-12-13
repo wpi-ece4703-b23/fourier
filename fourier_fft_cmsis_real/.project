@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>fourier_fft_cmsis_real</name>
+	<name>fourier_fft_cmsis_real_hanning</name>
 	<comment></comment>
 	<projects>
 	</projects>
